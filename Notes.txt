@@ -1,0 +1,69 @@
+==========================CONNECTIONS============================================================
+(1)--> connection of socket like connection and disconnect
+
+(2)--> socket io works both side client and server side 
+     when we use socket io and others event and show on client side which is call on the client side
+
+(3)--> And there are severals types of the events which  is used in the server side
+(a)--> connection
+(b)--> disconnect
+(c)--> message(socket.send()); -->which is used in chat app but we use custome events
+(d)--> ping
+(e)--> Join
+(f)-> Leave
+===========================EVENTS==================================================================================================
+
+(4)--> 
+case(1) Custome Event create on "server" side and catch on "client" side
+
+case(2) Custome Event create on "client" side and catch on "server" side
+
+==========================HOW TO MAKE CUSTOME EVENT client AND server BOTH=====================================================================================================
+
+Custom Event --> how to make?
+syntax --> 
+server side syntax
+socket.emit("customName" , anything you pass as obj ,  array ,string etc );
+
+client side syntax
+socket.on("customName , callback with argument (data)=>{
+    clg(data);
+})
+
+NOTE --> on()-> For event catch
+         emit-> create customEvent
+
+===========================BROADCAST IN socket io===============================================================================
+(1) What is BROADCASTING
+(a)--> Users can see how many user connected
+(b)--> If user connect then we will show (turant jo connect hua hai use) a welcome message to user and other users can see how many user connected
+
+io.sockets.emit = globally hr ek chij dikhenga user ko
+socket.emit--> custom event
+socket.broadcast.emit = only see connected user
+================================NAMESPACES IN SOCKET IO=====================================================================================
+(1)==What is NAMESPACES in socket io ?--> it uses in multiple chat 
+ans --> A Namespace is a communication channel that allows you to split the logic of your application over a single shared connection.
+by default mera "/" hi connection rahta hai agar main ise change karu to uske liye 
+
+ek variable banaunga ek tarah se routes jaise then us variable ko route me use karte hai "route." waise use karenge jaha  jaha io hoga waha
+
+(2)==how to create or use Namespace socket io? 
+================================ROOMS=====================================================================================================================
+(1) What is Room?  A room is an arbitrary channel that sockets can join and leave. It can be used to broadcast events to a subset of clients:
+(2) why we use ROOMS --> har ek Namespace ke andar multiple channel ko create kr sakte hai aur unme join and leave kar skte hai
+
+Ex1-- Create simple Room --. create a room and join simple and index.html me socket.on karke data ko lelo
+Ex2-- How to Create Multiple Rooms with their limit?
+
+==================================ERRROR HANDLING==============================================================
+(1) why we need Error handling?
+(2) What are the events for error handling?
+
+there are different types of error handling client side\
+(1)  connection_failed
+(2)  reconnection_failed
+(3)  reconnect
+(4)  connection timeout
+
+=============================How to connect client Socket. io to multiple servers?
